@@ -15,6 +15,6 @@ echo "Remove Old Files from /var/www/html"
 sudo rm -r /var/www/html
 
 echo "Deploy Login App"
-sudo git clone https://github.com/gamesf2pmode@gmail.com/webapp.git
+sudo git clone -b devops https://github.com/gamesf2pmode@gmail.com/webapp.git /var/www/html 
 
 echo "Deployed Webapps On NGINX" 
