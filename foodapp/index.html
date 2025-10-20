@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Food Web App</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: #ff7043;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      width: 90%;
+      max-width: 600px;
+      margin-top: 2rem;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    input, button {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #ff7043;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #f4511e;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .price {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🍔 Simple Food Web App</h1>
+  </header>
+
+  <main>
+    <h2>Add Food Item</h2>
+    <form id="foodForm">
+      <input type="text" id="foodName" placeholder="Food name" required />
+      <input type="number" id="foodPrice" placeholder="Price ($)" required />
+      <button type="submit">Add Food</button>
+    </form>
+
+    <h2>Food List</h2>
+    <ul id="foodList"></ul>
+  </main>
+
+  <script>
+    const form = document.getElementById('foodForm');
+    const foodList = document.getElementById('foodList');
+
+    // Load saved items
+    let foods = JSON.parse(localStorage.getItem('foods')) || [];
+
+    function renderFoods() {
+      foodList.innerHTML = '';
+      foods.forEach((food, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${food.name}</span>
+          <span class="price">$${food.price.toFixed(2)}</span>
+        `;
+        li.addEventListener('click', () => removeFood(index));
+        foodList.appendChild(li);
+      });
+    }
+
+    function removeFood(index) {
+      foods.splice(index, 1);
+      localStorage.setItem('foods', JSON.stringify(foods));
+      renderFoods();
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('foodName').value.trim();
+      const price = parseFloat(document.getElementById('foodPrice').value);
+      if (name && !isNaN(price)) {
+        foods.push({ name, price });
+        localStorage.setItem('foods', JSON.stringify(foods));
+        renderFoods();
+        form.reset();
+      }
+    });
+
+    renderFoods();
+  </script>
+</body>
+</html>
+
