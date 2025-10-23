@@ -1,3 +1,18 @@
 # - Comment, this line will be ignored by Kubernetes
 
 # we can use .yml or .yaml for Kubernetes Manifest File(CODE)
+
+# Correct Representation of Key Values
+key: value 
+
+# Incorrect Representation of Key Values
+key:value 
+key :value
+
+# Simple Key Values
+name: venky
+city: waterloo
+province/state: ontario
+country: canada
+
+
