@@ -22,3 +22,10 @@ student:
   city: waterloo
   province: ontario
 
+# List - Multiple items, List of Courses
+
+courses:
+- AWS
+- DevOps
+- Azure
+
