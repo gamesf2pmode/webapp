@@ -15,4 +15,10 @@ city: waterloo
 province/state: ontario
 country: canada
 
+# Dictionary / Map - A dictionary is a data structure that holds a collection of data as a set of key-value pairs.
+
+student:
+  name: venky
+  city: waterloo
+  province: ontario
 
