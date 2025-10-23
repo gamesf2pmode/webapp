@@ -1,0 +1,17 @@
+# Pod Template
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx-Pod
+spec: 
+  containers:
+  - name: c1
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+
+
+
