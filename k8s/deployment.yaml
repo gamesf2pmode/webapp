@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: nginx
 spec:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: c1
-        image: gamesf2pmode/webapp 
+        image: nginx
         ports:
         - containerPort: 80
