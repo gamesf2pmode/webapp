@@ -2,9 +2,10 @@
 
 apiVersion: v1
 metadata:
-  name: nginx-pod 
-specs: 
-  container:
+  name: nginx-pod-2 
+kind: Pod
+spec: 
+  containers:
   - name: c1
     image: nginx
     ports:
