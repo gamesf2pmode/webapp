@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 1
   selector:
+    matchLabels:
+      labels:
+        app: nginx
   template: # POD TEMPLATE
     metadata:
       labels:
