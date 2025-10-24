@@ -5,7 +5,7 @@ metadata:
   name: nginx-pod 
 kind: Pod
 spec: 
-  container:
+  containers:
   - name: c1
     image: nginx
     ports:
