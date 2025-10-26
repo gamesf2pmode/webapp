@@ -1,0 +1,17 @@
+deployment:
+ name:
+ replicas:
+ label:
+ container:
+ image:
+ port:
+
+service:
+ name:
+ type:
+ label:
+ port:
+ nodeport:
+
+
+

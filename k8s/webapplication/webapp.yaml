@@ -1,0 +1,17 @@
+deployment: 
+ name: login   
+ replicas: 1 
+ label: login  
+ container: login   
+ image: gamesf2pmode/webapp 
+ port: 80   
+
+service:
+ name: login-svc  
+ type: NodePort  
+ label: login 
+ port: 80   
+ nodeport: 30888  
+
+
+
